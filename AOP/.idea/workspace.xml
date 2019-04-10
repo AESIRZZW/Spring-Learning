@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de4495ae-1095-473e-b01e-42ce40839c46" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Runtime Environment.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/AOP/META-INF/AOP.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/AOP/applicationContext_byAnnotation.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/AOP/applicationContext_byConfiguration.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/AOP/com/aesirtech/learning/spring/aop/proxydemo/AritchmeticCaculatorProxy$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/AOP/com/aesirtech/learning/spring/aop/proxydemo/AritchmeticCaculatorProxy.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/AOP/com/aesirtech/learning/spring/aop/proxydemo/ArithmeticCalculator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/AOP/com/aesirtech/learning/spring/aop/proxydemo/ArithmeticCalculatorImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/AOP/com/aesirtech/learning/spring/aop/proxydemo/Client.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/AOP/com/aesirtech/learning/spring/aop/springaopdemo/annotation/ArithmeticCalculator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/AOP/com/aesirtech/learning/spring/aop/springaopdemo/annotation/ArithmeticCalculatorImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/AOP/com/aesirtech/learning/spring/aop/springaopdemo/annotation/Client.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/AOP/com/aesirtech/learning/spring/aop/springaopdemo/annotation/LoggingAspect.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/AOP/com/aesirtech/learning/spring/aop/springaopdemo/annotation/ValidationAspect.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/AOP/com/aesirtech/learning/spring/aop/springaopdemo/configuration/ArithmeticCalculator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/AOP/com/aesirtech/learning/spring/aop/springaopdemo/configuration/ArithmeticCalculatorImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/AOP/com/aesirtech/learning/spring/aop/springaopdemo/configuration/Client.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/AOP/com/aesirtech/learning/spring/aop/springaopdemo/configuration/LoggingAspect.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/AOP/com/aesirtech/learning/spring/aop/springaopdemo/configuration/ValidationAspect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AOP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AOP.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,7 +70,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/aesirtech/learning/spring/aop/springaopdemo/annotation/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="483">
               <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
             </state>
           </provider>
@@ -144,11 +124,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-325" />
-    <option name="y" value="20" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="287" />
     <option name="width" value="1750" />
-    <option name="height" value="995" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -156,7 +135,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -224,12 +202,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554834812764" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554909586325" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Library/spring-framework-5.1.6.RELEASE/dependencies/commons-logging-1.3.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -344,6 +323,8 @@
       <workItem from="1554827944843" duration="2132000" />
       <workItem from="1554833830374" duration="29000" />
       <workItem from="1554834721156" duration="107000" />
+      <workItem from="1554835382518" duration="21000" />
+      <workItem from="1554894906755" duration="167000" />
     </task>
     <task id="LOCAL-00001" summary="[Version:1.0]">
       <created>1554828931322</created>
@@ -363,12 +344,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2268000" />
+    <option name="totallyTimeSpent" value="2456000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="609" y="162" width="1400" height="796" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22989276" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26304024" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -481,6 +462,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/aesirtech/learning/spring/aop/springaopdemo/annotation/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/aesirtech/learning/spring/aop/springaopdemo/annotation/ArithmeticCalculatorImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -492,13 +480,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/aesirtech/learning/spring/aop/springaopdemo/annotation/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
         </state>
       </provider>
     </entry>
