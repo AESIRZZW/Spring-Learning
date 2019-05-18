@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <!--Configuring Java Beans-->
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <!-- Configuring Java Beans. -->
     <bean id="helloWorld" class="com.aesirtech.learning.spring.ioc.beans.HelloWorld">
         <property name="name" value="Spring"></property>
     </bean>
 
-    <!--Injecting bean attributes through constructor-->
-    <!--Index does not need if the parameters are sequential.
-        Distinguish by type if there are multiple constructors.
-        <![CDATA[*]]> can be used if the attribute contains special characters.-->
+    <!-- Injecting bean attributes through constructor. -->
+    <!-- Index does not need if the parameters are sequential.
+         Distinguish by type if there are multiple constructors. -->
     <bean id="audi" class="com.aesirtech.learning.spring.ioc.beans.Car">
         <constructor-arg value="Audi" index="0" type="java.lang.String"></constructor-arg>
         <constructor-arg value="SAIC Motor Corporation Limited" index="1" type="java.lang.String"></constructor-arg>
         <constructor-arg value="300000" index="2" type="double"></constructor-arg>
     </bean>
 
-    <!---->
+    <!-- <![CDATA[*]]> can be used if the attribute contains special characters. -->
     <bean id="tesla" class="com.aesirtech.learning.spring.ioc.beans.Car">
         <constructor-arg value="Tesla" index="0" type="java.lang.String"></constructor-arg>
         <constructor-arg index="1" type="java.lang.String">
@@ -26,4 +26,68 @@
         <constructor-arg value="250" index="2" type="int"></constructor-arg>
     </bean>
 
+    <!-- ref attribute is used to establish reference relationships between beans
+         Values can be assigned in cascades if there is a corresponding setter method. -->
+    <bean id="tom" class="com.aesirtech.learning.spring.ioc.beans.Person">
+        <property name="name" value="Tom"></property>
+        <property name="age" value="25"></property>
+        <property name="car" ref="tesla"></property>
+        <property name="car.maxSpeed" value="180"></property>
+    </bean>
+
+    <!-- Internal beans cannot be referenced externally
+         Attributes can be assigned to null by <null/>. -->
+    <bean id="jack" class="com.aesirtech.learning.spring.ioc.beans.Person">
+        <property name="name" value="Jack"></property>
+        <property name="age" value="25"></property>
+        <property name="car">
+            <bean class="com.aesirtech.learning.spring.ioc.beans.Car">
+                <constructor-arg value="Ford" index="0" type="java.lang.String"></constructor-arg>
+                <constructor-arg index="1" type="java.lang.String">
+                    <null/>
+                </constructor-arg>
+                <constructor-arg value="200000" index="2" type="double"></constructor-arg>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- Parameters can be configure quickly through the p namespace since Spring 2.5 -->
+    <bean id="michael" class="com.aesirtech.learning.spring.ioc.beans.Person" p:name="Michael" p:age="30"
+          p:car-ref="tesla"></bean>
+
+    <!-- Collection attributes can be assigned by list、map、set, etc. -->
+    <bean id="carShop" class="com.aesirtech.learning.spring.ioc.beans.CarShop">
+        <property name="name" value="Shanghai 4S Shop"></property>
+        <property name="addr" value="Shanghai Nanjing Road"></property>
+        <property name="cars">
+            <list>
+                <ref bean="audi"></ref>
+                <ref bean="tesla"></ref>
+            </list>
+        </property>
+        <property name="orders">
+            <map>
+                <entry key-ref="tom" value-ref="tesla"></entry>
+                <entry key-ref="jack" value-ref="audi"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- Properties is a subclass of Hashtable. -->
+    <bean id="dataSource" class="com.aesirtech.learning.spring.ioc.beans.DataSource">
+        <property name="properties">
+            <props>
+                <prop key="user">root</prop>
+                <prop key="password">123456</prop>
+                <prop key="jdbcUrl">jdbc:mysql:///test</prop>
+                <prop key="driverClass">com.mysql.jdbc.Driver</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- Collections can be separated for reuse in this way. -->
+    <util:list id="cars">
+        <ref bean="audi"></ref>
+        <ref bean="tesla"></ref>
+    </util:list>
 </beans>

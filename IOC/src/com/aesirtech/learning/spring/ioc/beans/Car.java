@@ -34,5 +34,7 @@ public class Car {
                 '}';
     }
 
-
+    public void setMaxSpeed(int maxSpeed) {
+        this.maxSpeed = maxSpeed;
+    }
 }

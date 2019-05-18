@@ -1,7 +1,6 @@
 package com.aesirtech.learning.spring.ioc;
 
-import com.aesirtech.learning.spring.ioc.beans.Car;
-import com.aesirtech.learning.spring.ioc.beans.HelloWorld;
+import com.aesirtech.learning.spring.ioc.beans.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -55,5 +54,18 @@ public class Main {
         Car tesla = (Car) applicationContext.getBean("tesla");
         System.out.println(audi);
         System.out.println(tesla);
+
+        Person tom = (Person) applicationContext.getBean("tom");
+        Person jack = (Person) applicationContext.getBean("jack");
+        Person michael = (Person) applicationContext.getBean("michael");
+        System.out.println(tom);
+        System.out.println(jack);
+        System.out.println(michael);
+
+        CarShop carShop = (CarShop) applicationContext.getBean("carShop");
+        System.out.println(carShop);
+
+        DataSource dataSource = (DataSource) applicationContext.getBean("dataSource");
+        System.out.println(dataSource);
     }
 }
