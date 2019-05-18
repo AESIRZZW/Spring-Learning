@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
-       xmlns:p="http://www.springframework.org/schema/p"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!-- Configuring Java Beans. -->
     <bean id="helloWorld" class="com.aesirtech.learning.spring.ioc.beans.HelloWorld">
         <property name="name" value="Spring"></property>
@@ -90,4 +90,35 @@
         <ref bean="audi"></ref>
         <ref bean="tesla"></ref>
     </util:list>
+
+    <!-- Three ways of autowire: byName, byType, constructor.
+         Dependent-on is used to specify required dependencies. -->
+    <bean id="previousAddress" class="com.aesirtech.learning.spring.ioc.beans.autowire.Address" p:city="Beijing"
+          p:street="Wangfujing"></bean>
+    <bean id="user" class="com.aesirtech.learning.spring.ioc.beans.autowire.User" p:name="Tom"
+          p:telephone="18623457968"></bean>
+    <bean id="order" class="com.aesirtech.learning.spring.ioc.beans.autowire.Order" p:price="200000"
+          autowire="byName" depends-on="user,address"></bean>
+
+    <!-- Inheritance of bean configuration. -->
+    <bean id="address" class="com.aesirtech.learning.spring.ioc.beans.autowire.Address" p:street="WuDaokou"
+          parent="previousAddress"></bean>
+
+    <!-- Abstract beans cannot be instantiated in IOC containers and can even have no concrete class.-->
+    <bean id="templateAddress" class="com.aesirtech.learning.spring.ioc.beans.autowire.Address" p:province="GuangDong"
+          abstract="true"></bean>
+
+    <!-- Scope of beans: prototype and singleton(default). -->
+    <bean id="newOrder" class="com.aesirtech.learning.spring.ioc.beans.autowire.Order" p:price="200000"
+          autowire="byName" scope="prototype"></bean>
+
+    <!-- Import external property files. -->
+    <context:property-placeholder location="classpath:db.properties"></context:property-placeholder>
+    <!-- Inject attributes using SpEL. -->
+    <bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="user" value="${user}"></property>
+        <property name="password" value="${password}"></property>
+        <property name="driverClass" value="${driverClass}"></property>
+        <property name="jdbcUrl" value="${jdbcUrl}"></property>
+    </bean>
 </beans>

@@ -1,8 +1,11 @@
 package com.aesirtech.learning.spring.ioc;
 
 import com.aesirtech.learning.spring.ioc.beans.*;
+import com.aesirtech.learning.spring.ioc.beans.autowire.Order;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.sql.SQLException;
 
 /**
  * @ProjectName: IOC
@@ -67,5 +70,15 @@ public class Main {
 
         DataSource dataSource = (DataSource) applicationContext.getBean("dataSource");
         System.out.println(dataSource);
+
+        Order order = (Order) applicationContext.getBean("order");
+        System.out.println(order);
+
+        javax.sql.DataSource myDataSource = (javax.sql.DataSource) applicationContext.getBean("myDataSource");
+        try {
+            System.out.println(myDataSource.getConnection());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
