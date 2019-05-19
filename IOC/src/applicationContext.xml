@@ -114,11 +114,25 @@
 
     <!-- Import external property files. -->
     <context:property-placeholder location="classpath:db.properties"></context:property-placeholder>
-    <!-- Inject attributes using SpEL. -->
+    <!-- Inject attributes using EL. -->
     <bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="user" value="${user}"></property>
         <property name="password" value="${password}"></property>
         <property name="driverClass" value="${driverClass}"></property>
         <property name="jdbcUrl" value="${jdbcUrl}"></property>
+    </bean>
+
+    <!-- Dynamic assignment using SpEL:
+         1. You cannot refer to your own attributes.
+         2. It's best to place the attributes of other beans at the beginning of SeEL. -->
+    <bean id="circular" class="com.aesirtech.learning.spring.ioc.beans.spel.Circular">
+        <property name="diameter" value="#{2.5}"></property>
+        <property name="perimeter" value="#{T(java.lang.Math).PI*2.5}"></property>
+        <property name="area" value="#{T(java.lang.Math).pow(2.5 / 2,2) * T(java.lang.Math).PI}"></property>
+    </bean>
+    <bean id="cone" class="com.aesirtech.learning.spring.ioc.beans.spel.Cone">
+        <property name="circular" value="#{circular}"></property>
+        <property name="height" value="#{7.5}"></property>
+        <property name="volume" value="#{circular.area*1/3*7.5}"></property>
     </bean>
 </beans>

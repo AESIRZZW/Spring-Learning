@@ -2,6 +2,8 @@ package com.aesirtech.learning.spring.ioc;
 
 import com.aesirtech.learning.spring.ioc.beans.*;
 import com.aesirtech.learning.spring.ioc.beans.autowire.Order;
+import com.aesirtech.learning.spring.ioc.beans.spel.Circular;
+import com.aesirtech.learning.spring.ioc.beans.spel.Cone;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -75,10 +77,10 @@ public class Main {
         System.out.println(order);
 
         javax.sql.DataSource myDataSource = (javax.sql.DataSource) applicationContext.getBean("myDataSource");
-        try {
-            System.out.println(myDataSource.getConnection());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        System.out.println(myDataSource);
+        Circular circular = (Circular) applicationContext.getBean("circular");
+        Cone cone = (Cone) applicationContext.getBean("cone");
+        System.out.println(circular);
+        System.out.println(cone);
     }
 }
