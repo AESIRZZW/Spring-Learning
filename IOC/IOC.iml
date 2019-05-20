@@ -13,7 +13,9 @@
           <root url="jar://$MODULE_DIR$/../../../Library/spring-framework-5.1.6.RELEASE/libs/spring-beans-5.1.6.RELEASE.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/../../../Library/spring-framework-5.1.6.RELEASE/libs/spring-beans-5.1.6.RELEASE-sources.jar!/" />
+        </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
@@ -74,6 +76,15 @@
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../../../Library/spring-framework-5.1.6.RELEASE/dependencies/mchange-commons-java-0.2.15.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../../Library/spring-framework-5.1.6.RELEASE/libs/spring-aop-5.1.6.RELEASE.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

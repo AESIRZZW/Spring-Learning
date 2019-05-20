@@ -1,4 +1,4 @@
-package com.aesirtech.learning.spring.ioc.beans;
+package com.aesirtech.learning.spring.ioc.properties;
 
 import java.util.Properties;
 

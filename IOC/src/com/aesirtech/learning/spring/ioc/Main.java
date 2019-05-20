@@ -1,13 +1,16 @@
 package com.aesirtech.learning.spring.ioc;
 
 import com.aesirtech.learning.spring.ioc.beans.*;
-import com.aesirtech.learning.spring.ioc.beans.autowire.Order;
-import com.aesirtech.learning.spring.ioc.beans.spel.Circular;
-import com.aesirtech.learning.spring.ioc.beans.spel.Cone;
+import com.aesirtech.learning.spring.ioc.autowire.bean.Order;
+import com.aesirtech.learning.spring.ioc.collections.CarShop;
+import com.aesirtech.learning.spring.ioc.factory.Spacecraft;
+import com.aesirtech.learning.spring.ioc.lifecycle.AirPlane;
+import com.aesirtech.learning.spring.ioc.properties.DataSource;
+import com.aesirtech.learning.spring.ioc.spel.Circular;
+import com.aesirtech.learning.spring.ioc.spel.Cone;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.sql.SQLException;
 
 /**
  * @ProjectName: IOC
@@ -73,14 +76,22 @@ public class Main {
         DataSource dataSource = (DataSource) applicationContext.getBean("dataSource");
         System.out.println(dataSource);
 
-        Order order = (Order) applicationContext.getBean("order");
-        System.out.println(order);
-
         javax.sql.DataSource myDataSource = (javax.sql.DataSource) applicationContext.getBean("myDataSource");
         System.out.println(myDataSource);
+
         Circular circular = (Circular) applicationContext.getBean("circular");
         Cone cone = (Cone) applicationContext.getBean("cone");
         System.out.println(circular);
         System.out.println(cone);
+
+        Spacecraft spaceShuttle = (Spacecraft) applicationContext.getBean("spaceShuttle");
+        Spacecraft carrierRocket = (Spacecraft) applicationContext.getBean("carrierRocket");
+        System.out.println(spaceShuttle);
+        System.out.println(carrierRocket);
+
+        ConfigurableApplicationContext configurableApplicationContext = (ConfigurableApplicationContext) applicationContext;
+        AirPlane airPlane = (AirPlane) configurableApplicationContext.getBean("airPlane");
+        System.out.println(airPlane);
+        configurableApplicationContext.close();
     }
 }

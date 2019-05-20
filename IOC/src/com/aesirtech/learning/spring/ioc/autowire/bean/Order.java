@@ -1,4 +1,4 @@
-package com.aesirtech.learning.spring.ioc.beans.autowire;
+package com.aesirtech.learning.spring.ioc.autowire.bean;
 
 /**
  * @ProjectName: IOC

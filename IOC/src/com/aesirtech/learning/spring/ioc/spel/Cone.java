@@ -1,4 +1,4 @@
-package com.aesirtech.learning.spring.ioc.beans.spel;
+package com.aesirtech.learning.spring.ioc.spel;
 
 /**
  * @ProjectName: IOC

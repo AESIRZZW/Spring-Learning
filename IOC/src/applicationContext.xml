@@ -56,7 +56,7 @@
           p:car-ref="tesla"></bean>
 
     <!-- Collection attributes can be assigned by list、map、set, etc. -->
-    <bean id="carShop" class="com.aesirtech.learning.spring.ioc.beans.CarShop">
+    <bean id="carShop" class="com.aesirtech.learning.spring.ioc.collections.CarShop">
         <property name="name" value="Shanghai 4S Shop"></property>
         <property name="addr" value="Shanghai Nanjing Road"></property>
         <property name="cars">
@@ -74,7 +74,7 @@
     </bean>
 
     <!-- Properties is a subclass of Hashtable. -->
-    <bean id="dataSource" class="com.aesirtech.learning.spring.ioc.beans.DataSource">
+    <bean id="dataSource" class="com.aesirtech.learning.spring.ioc.properties.DataSource">
         <property name="properties">
             <props>
                 <prop key="user">root</prop>
@@ -93,23 +93,23 @@
 
     <!-- Three ways of autowire: byName, byType, constructor.
          Dependent-on is used to specify required dependencies. -->
-    <bean id="previousAddress" class="com.aesirtech.learning.spring.ioc.beans.autowire.Address" p:city="Beijing"
+    <bean id="previousAddress" class="com.aesirtech.learning.spring.ioc.autowire.bean.Address" p:city="Beijing"
           p:street="Wangfujing"></bean>
-    <bean id="user" class="com.aesirtech.learning.spring.ioc.beans.autowire.User" p:name="Tom"
+    <bean id="user" class="com.aesirtech.learning.spring.ioc.autowire.bean.User" p:name="Tom"
           p:telephone="18623457968"></bean>
-    <bean id="order" class="com.aesirtech.learning.spring.ioc.beans.autowire.Order" p:price="200000"
+    <bean id="order" class="com.aesirtech.learning.spring.ioc.autowire.bean.Order" p:price="200000"
           autowire="byName" depends-on="user,address"></bean>
 
     <!-- Inheritance of bean configuration. -->
-    <bean id="address" class="com.aesirtech.learning.spring.ioc.beans.autowire.Address" p:street="WuDaokou"
+    <bean id="address" class="com.aesirtech.learning.spring.ioc.autowire.bean.Address" p:street="WuDaokou"
           parent="previousAddress"></bean>
 
     <!-- Abstract beans cannot be instantiated in IOC containers and can even have no concrete class.-->
-    <bean id="templateAddress" class="com.aesirtech.learning.spring.ioc.beans.autowire.Address" p:province="GuangDong"
+    <bean id="templateAddress" class="com.aesirtech.learning.spring.ioc.autowire.bean.Address" p:province="GuangDong"
           abstract="true"></bean>
 
     <!-- Scope of beans: prototype and singleton(default). -->
-    <bean id="newOrder" class="com.aesirtech.learning.spring.ioc.beans.autowire.Order" p:price="200000"
+    <bean id="newOrder" class="com.aesirtech.learning.spring.ioc.autowire.bean.Order" p:price="200000"
           autowire="byName" scope="prototype"></bean>
 
     <!-- Import external property files. -->
@@ -125,14 +125,37 @@
     <!-- Dynamic assignment using SpEL:
          1. You cannot refer to your own attributes.
          2. It's best to place the attributes of other beans at the beginning of SeEL. -->
-    <bean id="circular" class="com.aesirtech.learning.spring.ioc.beans.spel.Circular">
+    <bean id="circular" class="com.aesirtech.learning.spring.ioc.spel.Circular">
         <property name="diameter" value="#{2.5}"></property>
         <property name="perimeter" value="#{T(java.lang.Math).PI*2.5}"></property>
         <property name="area" value="#{T(java.lang.Math).pow(2.5 / 2,2) * T(java.lang.Math).PI}"></property>
     </bean>
-    <bean id="cone" class="com.aesirtech.learning.spring.ioc.beans.spel.Cone">
+    <bean id="cone" class="com.aesirtech.learning.spring.ioc.spel.Cone">
         <property name="circular" value="#{circular}"></property>
         <property name="height" value="#{7.5}"></property>
         <property name="volume" value="#{circular.area*1/3*7.5}"></property>
     </bean>
+
+    <!-- Declare bean init- and destroy-method. -->
+    <bean id="airPlane" class="com.aesirtech.learning.spring.ioc.lifecycle.AirPlane" init-method="init"
+          destroy-method="destroy">
+        <property name="model" value="Boeing 737"></property>
+        <property name="color" value="white"></property>
+        <property name="id" value="001"></property>
+    </bean>
+
+    <!-- Spring IOC will discover BeanPostProcessor automatically. -->
+    <bean class="com.aesirtech.learning.spring.ioc.lifecycle.MyBeanPostProcessor"></bean>
+
+    <!-- Configuring beans through static factory method. -->
+    <bean id="spaceShuttle" class="com.aesirtech.learning.spring.ioc.factory.SpacecraftFactory"
+          factory-method="getSpacecraft">
+        <constructor-arg value="Space Shuttle"></constructor-arg>
+    </bean>
+    <bean id="carrierRocket" class="com.aesirtech.learning.spring.ioc.factory.SpacecraftFactory"
+          factory-method="getSpacecraft">
+        <constructor-arg value="Carrier Rocket"></constructor-arg>
+    </bean>
+
+    <context:component-scan base-package="com.aesirtech.learning.spring.ioc.annotation"></context:component-scan>
 </beans>

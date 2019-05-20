@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Three ways of autowire: byName, byType, constructor.
+         Dependent-on is used to specify required dependencies. -->
+    <bean id="previousAddress" class="com.aesirtech.learning.spring.ioc.autowire.bean.Address" p:city="Beijing"
+          p:street="Wangfujing"></bean>
+    <bean id="user" class="com.aesirtech.learning.spring.ioc.autowire.bean.User" p:name="Tom"
+          p:telephone="18623457968"></bean>
+    <bean id="order" class="com.aesirtech.learning.spring.ioc.autowire.bean.Order" p:price="200000"
+          autowire="byName" depends-on="user,address"></bean>
+
+    <!-- Inheritance of bean configuration. -->
+    <bean id="address" class="com.aesirtech.learning.spring.ioc.autowire.bean.Address" p:street="WuDaokou"
+          parent="previousAddress"></bean>
+
+    <!-- Abstract beans cannot be instantiated in IOC containers and can even have no concrete class.-->
+    <bean id="templateAddress" class="com.aesirtech.learning.spring.ioc.autowire.bean.Address" p:province="GuangDong"
+          abstract="true"></bean>
+
+    <!-- Scope of beans: prototype and singleton(default). -->
+    <bean id="newOrder" class="com.aesirtech.learning.spring.ioc.autowire.bean.Order" p:price="200000"
+          autowire="byName" scope="prototype"></bean>
+</beans>

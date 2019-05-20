@@ -1,4 +1,7 @@
-package com.aesirtech.learning.spring.ioc.beans;
+package com.aesirtech.learning.spring.ioc.collections;
+
+import com.aesirtech.learning.spring.ioc.beans.Car;
+import com.aesirtech.learning.spring.ioc.beans.Person;
 
 import java.util.List;
 import java.util.Map;
